@@ -85,4 +85,10 @@ function onLoad() {
         $('#chatMessages').append($('<li>').html('<span style="color:red">' + color + " is an invalid color, try a different one" + '</span>'));
    
     });
+
+    socket.on('invalid operation', function(username) {
+    
+        $('#chatMessages').append($('<li>').html('<span style="color:red">' + "Invalid slash operation" + '</span>'));
+   
+    });
 }

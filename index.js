@@ -49,43 +49,46 @@ io.on('connection', function(socket){
 
     socket.on('chat message', function(msg){
 
-        if(msg.startsWith("/nick ")) {
-            var oldUsername = socket.name;
-            socket.name = msg.slice(6);
-            var taken = false;
-            for (var i = 0; i < usersList.length; i++) {
-                if(usersList[i].nickname === socket.name) {
-                    taken = true;
-                    socket.emit('nickname taken', socket.name);
-                    socket.name = oldUsername;
-                    break;
-                }
-            }
-            if(!taken) {
+        if(msg.startsWith("/")){
+            if(msg.startsWith("/nick ")) {
+                var oldUsername = socket.name;
+                socket.name = msg.slice(6);
+                var taken = false;
                 for (var i = 0; i < usersList.length; i++) {
-                    if (usersList[i].nickname === oldUsername) {
-                        usersList[i].nickname = socket.name;
-                    } 
-                }
-                io.emit('new userlist', usersList);
-                socket.emit('new cookie name', socket.name);
-                socket.emit('new name', socket.name);
-            }
-        } else if (msg.startsWith("/nickcolor ")) {
-            socket.color = msg.slice(11);
-            var validColor = isHexColor(socket.color);
-            if(validColor) {
-                for(var i = 0; i < usersList.length; i++) {
                     if(usersList[i].nickname === socket.name) {
-                        usersList[i].color = socket.color;
+                        taken = true;
+                        socket.emit('nickname taken', socket.name);
+                        socket.name = oldUsername;
+                        break;
                     }
                 }
-                io.emit('new userlist', usersList);
+                if(!taken) {
+                    for (var i = 0; i < usersList.length; i++) {
+                        if (usersList[i].nickname === oldUsername) {
+                            usersList[i].nickname = socket.name;
+                        } 
+                    }
+                    io.emit('new userlist', usersList);
+                    socket.emit('new cookie name', socket.name);
+                    socket.emit('new name', socket.name);
+                }
+            } else if (msg.startsWith("/nickcolor ")) {
+                socket.color = msg.slice(11);
+                var validColor = isHexColor(socket.color);
+                if(validColor) {
+                    for(var i = 0; i < usersList.length; i++) {
+                        if(usersList[i].nickname === socket.name) {
+                            usersList[i].color = socket.color;
+                        }
+                    }
+                    io.emit('new userlist', usersList);
+                } else {
+                    socket.emit('invalid color', socket.color);
+                }
             } else {
-                socket.emit('invalid color', socket.color);
+                socket.emit('invalid operation', socket.name);
             }
-
-        } else {
+        }else {
             var currTime = getTime();
             chatLog.push({user: socket.name, color: socket.color, msg: msg, timeStamp: currTime});
             socket.broadcast.emit('chat message', currTime, socket.color, socket.name, msg);

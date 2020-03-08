@@ -1,0 +1,128 @@
+*, *:before, *:after
+{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial, sans-serif';
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgb(97, 96, 95); 
+    font: 20px;
+}
+
+form {
+    background:rgb(97, 96, 95); 
+    bottom: 0%;
+    padding: 5px;
+    position: fixed;
+    width: 100%;
+}
+
+h1 {
+    color: #fff6f3;
+}
+
+.header {
+    margin-left: 20px;
+}
+
+#chatBox input {
+    border: 1px solid #93827F;
+    margin-right: .5%;
+    padding: 15px;
+    width: 88%;
+    background: #F9F0ED;
+}
+
+#chatBox button {
+    background: #93827F; 
+    border: none;
+    color: #F9F0ED; 
+    line-height: 20px;
+    padding: 12px;
+    text-align: center;
+    width: 10%;
+}
+
+.box {
+    display: flex;
+    height: 83%;
+    flex-flow: row;
+}
+
+.chatBox {
+    position: relative;
+    height: 95%;
+    width: 95%;
+    overflow-y: auto;
+}
+
+.chatHolder {
+    position: relative;
+    width: 98%;
+    background-color: rgb(218, 213, 209);
+    flex: 1;
+    overflow: auto;
+    margin-left: 10px;
+}
+
+#chatMessages {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 25px;
+}
+
+#chatMessages li {
+    padding: 5px 10px;
+}
+
+.divider {
+    position:absolute;
+    right: 27%;
+    top: 1%;
+    bottom: 5%;
+    border-left:1px solid rgba(255,255,255,0.8);
+}
+
+.userBox {
+    width: 35%;
+    overflow-y: auto;
+    padding: 10px;
+    margin-top: -75px;
+}
+
+#userList {
+    margin: 5px;
+    padding: 5px;
+    background-color: rgb(218, 213, 209);
+
+}
+
+#userList li {
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+#footer {
+    padding: 8px;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}

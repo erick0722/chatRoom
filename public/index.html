@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Chat</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <br><br>
+        <h1>Chat Log: </h1>
+        <p style="color: white; font-size: 20px; padding: 5px; " id="userName"></p>
+    </div>
+
+    <div class="box">
+        <div class="chatBox">
+            <div class="chatHolder">
+                <ul id="chatMessages"></ul>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="userBox">
+            <h1 style="margin-left: 5px;"> Current Users: </h1>
+            <br>
+            <ul style="list-style: none;" id="userList"></ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div style="margin-top: 1%;">
+        <form action="" id="chatBox">
+            <input id="userMsg" autocomplete="off" autofocus/>
+            <button style="background-color:rgb(221, 153, 27)"> Send </button>
+        </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="client.js"></script>
+
+</body>
+</html>

@@ -54,7 +54,7 @@ h1 {
 
 .box {
     display: flex;
-    height: 83%;
+    height: 85%;
     flex-flow: row;
 }
 
@@ -72,6 +72,8 @@ h1 {
     flex: 1;
     overflow: auto;
     margin-left: 10px;
+    border: 3px solid black;
+    padding: 10px;
 }
 
 #chatMessages {
@@ -104,6 +106,7 @@ h1 {
     margin: 5px;
     padding: 5px;
     background-color: rgb(218, 213, 209);
+    border: 3px solid black;
 }
 
 #userList li {

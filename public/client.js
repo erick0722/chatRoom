@@ -58,7 +58,7 @@ function onLoad() {
 
     socket.on('chat message', function (currTime, color, username, msg) {
 
-        $('#chatMessages').append($('<li>').html(currTime + " " + '<span style="color:' + color + '">'
+        $('#chatMessages').append($('<li>').html(currTime + " " + '<span style="color:#' + color + '">'
             + username + ': </span>' + msg));
 
         $('.chatBox').animate({scrollTop: $('.chatBox').prop("scrollHeight")}, 500);
